@@ -19,6 +19,24 @@ class SlinkedList {
     }
 
     tail = newNode;
+
+  }
+  void addNodeAtEnd(int data){
+    Node newNode = Node(data);
+    if(head != null){
+      tail?.next = newNode;
+      tail = newNode;
+      tail?.next= null;
+    }
+
+  }
+  void addNodeAtBegining(int data){
+    Node newNode = Node(data);
+    
+    if(head!=null){
+      newNode.next = head;
+      head = newNode;
+    }
   }
 
   void display() {
@@ -42,7 +60,6 @@ class SlinkedList {
 
     while (temp != null && temp.data != data) {
       previous = temp;
-
       temp = temp.next;
     }
 
@@ -75,6 +92,7 @@ class SlinkedList {
       tail = newNode;
       return;
     }
+
     newNode.next = temp.next;
     temp.next = newNode;
   }
@@ -87,6 +105,10 @@ void main() {
   list.addNode(28);
   list.addNode(1);
   list.insertAfter(1, 20);
-  
+  list.display();
+  print("  ");
+  list.addNodeAtBegining(10);
+  list.display();
+  list.addNodeAtEnd(100);
   list.display();
 }
