@@ -39,9 +39,32 @@
 //   return result;
 // }
 
+class Array{
+
+  void reverse(List data){
+    int n=data.length;
+  int end = n - 1;  
+    for(int i = 0; i < n/2; i++)  
+    {  
+       int temp = data[i];  
+        data[i] = data[end];  
+        data[end] = temp;  
+        end--;  
+    }  
+  
+    for (var i = 0; i < data.length; i++) {
+      print(data[i]);
+    }
 
 
+  }
+}
 
+void main(){
+  List<int>data = [1,2,3,4,5,6];
+  Array arr = Array();
+  arr.reverse(data);
+}
 
 
 
