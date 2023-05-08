@@ -1,6 +1,7 @@
+
 class Binary {
 
-  List<int> arr = [3, 0, 2, 4, 1];
+  List<int> arr = [2000,3,483,4];
 
   void sorting() {
    for (int i = 0; i < arr.length; i++)   
@@ -18,7 +19,9 @@ arr[j] = tmp;
 print(arr[i]); 
 }  
   }
+  
 int binarySearch(List<int> list, int target) {
+ sorting();
   int min = 0;
   int max = list.length - 1;
   
@@ -35,15 +38,29 @@ int binarySearch(List<int> list, int target) {
     }
   }
   
-  return -1; // If the target is not found in the list
+  return -1; 
+}
+void largestNum(){
+
+  int small = arr[0]; 
+    for (int i = 1; i <arr.length-1; i++) {
+        if (arr[i] < small) {
+            small = arr[i];
+        }
+    }
+  print(small);
+
 }
 }
 
 void main() {
   Binary obj = Binary();
-  obj.sorting();
-  print('');
-  int? result = obj.binarySearch(obj.arr,1);
-  print(result);
+  // List<int> data = [349,32,4,3,24,83];
+  int resu=obj.binarySearch(obj.arr, 4);
+  print(resu);
+ 
+  // print('');
+  // int? result = obj.binarySearch(obj.arr,1);
+  // print(result);
 
 }

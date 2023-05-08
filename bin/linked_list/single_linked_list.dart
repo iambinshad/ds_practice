@@ -30,6 +30,17 @@ class SlinkedList {
     }
 
   }
+  // Future<void> wait ()async{
+  //   await Future.delayed(Duration(milliseconds: 2000));
+  //   print(4);
+  // }
+
+  // void wating(){
+  //   print(1);
+  //   print(2);
+  //    wait();
+  //   print(3);
+  // }
   void addNodeAtBegining(int data){
     Node newNode = Node(data);
     
@@ -101,14 +112,10 @@ class SlinkedList {
 void main() {
   SlinkedList list = SlinkedList();
 
-  list.addNode(38);
-  list.addNode(28);
-  list.addNode(1);
-  list.insertAfter(1, 20);
-  list.display();
-  print("  ");
-  list.addNodeAtBegining(10);
-  list.display();
-  list.addNodeAtEnd(100);
-  list.display();
+  // list.addNode(1);
+  // list.display();
+  // print(' ');
+  // list.addNodeAtBegining(28);
+  // list.display();
+ 
 }

@@ -40,30 +40,144 @@
 // }
 
 class Array{
-
-  void reverse(List data){
-    int n=data.length;
-  int end = n - 1;  
-    for(int i = 0; i < n/2; i++)  
-    {  
-       int temp = data[i];  
-        data[i] = data[end];  
-        data[end] = temp;  
-        end--;  
-    }  
   
-    for (var i = 0; i < data.length; i++) {
+  void revese(List data){
+    int n = data.length;
+    int end = n-1;
+    for(int i=0;i<=n/2;i++){
+    int temp = data[i];
+    data[i]= data[end];
+    data[end]=temp;
+    end--;
+    }
+    for(int i=0;i<n;i++){
       print(data[i]);
     }
+
+  }
+
+  // void reverse(List data){
+  //   int n=data.length;
+  // int end = n - 1;  
+  //   for(int i = 0; i < n/2; i++)  
+  //   {  
+  //      int temp = data[i];  
+  //       data[i] = data[end];  
+  //       data[end] = temp;  
+  //       end--;  
+  //   }  
+  
+  //   for (var i = 0; i < data.length; i++) {
+  //     print(data[i]);
+  //   }
+
+
+  // }
+}
+
+class Node{
+  int? data;
+  Node? next;
+
+  Node( int this.data);
+}
+class SLinked{
+  Node? head;
+  Node? tail;
+
+  void addNode(int data){
+    Node newNode = Node(data);
+    if(head == null){
+      head = newNode;
+    }else{
+      tail?.next = newNode;
+    }
+    tail = newNode;
+  }
+
+void insertAfter(int pos,int data){
+  Node? newNode = Node(data);
+  Node? temp = head;
+  while(temp!=null&&temp.data!=pos){
+    temp = temp.next;
+  }
+  if(temp ==null){
+    return;
+  }
+  if(temp == tail){
+    tail?.next = newNode;
+    tail = newNode;
+    return;
+  }
+
+  newNode.next=temp.next;
+  temp.next = newNode;
+
+}
+
+void insertBefore(int pos,int data){
+  Node newNode = Node(data);
+  Node? temp = head;
+
+  if(temp !=null && pos ==temp.data){
+    newNode.next = head;
+    head = newNode;
+  }
+
+  while(temp!=null&& temp.data !=pos){
+    temp = temp.next;
+  }
+
+
+
+
+}
+  void printAll(){
+    Node? temp = head;
+    while(temp!=null){
+      print(temp.data);
+      temp = temp.next;
+    }
+  }
+  void deleteNode(int data){
+    Node? temp = head, previous;
+     if(temp !=null&& data == temp.data){
+      head = temp.next;
+      return;
+    }
+    while(temp !=null && temp.data != data){
+      previous = temp;
+      temp = temp.next;
+    }
+
+    if(temp==null){
+      return;
+    }
+    if(data == tail?.data){
+      previous = tail;
+      tail?.next = null;
+      return;
+    }
+    previous?.next = temp.next;
+   
 
 
   }
 }
-
 void main(){
-  List<int>data = [1,2,3,4,5,6];
-  Array arr = Array();
-  arr.reverse(data);
+  // List<int>data = [1,2,3,4,5,6];
+  // Array arr = Array();
+  // arr.revese(data);
+  SLinked node = SLinked();
+  node.addNode(38);
+  node.addNode(28);
+  node.addNode(10);
+  node.addNode(1);
+  node.printAll();
+  node.insertBefore(38, 11);
+  print("");
+  node.printAll();
+
 }
 
 
