@@ -50,7 +50,7 @@ void quickSortHelper(List array, startIndex , endIndex){
   int rightIndex = endIndex;
   int pivotindex = startIndex;
 
-while (leftIndex<=rightIndex) {
+while (leftIndex<=rightIndex) { 
   if(array[leftIndex] > array[pivotindex] && array[rightIndex] < array[pivotindex]){
     swap(array,leftIndex,rightIndex);
     leftIndex++;

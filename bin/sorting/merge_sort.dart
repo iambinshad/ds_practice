@@ -52,7 +52,7 @@ void merge(List<int> arr, int leftIndex, int midIndex, int rightIndex) {
   }
 }
 void main(List<String> args) {
-  List<int> arr = [29,39,3,2,45,42,14,3];
+  List<int> arr = [29,39,3,2,45,42,14,3,2];
   mergeSort(arr, 0, arr.length-1);
   for (var i in arr) {
     print(i);

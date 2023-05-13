@@ -8,15 +8,14 @@ class Node {
 void main(List<String> args) {
   Stack obj = Stack();
 
-  // obj.push(10);
-  obj.push(39);
+  obj.push(10);
+  obj.push(28);
   obj.push(128);
-  obj.push(29);
-  obj.push(1383);
-obj.deleteMidElement();
-obj.displayStack();
-}
 
+  obj.push(1383);
+  obj.deleteMidElement();
+  obj.displayStack();
+}
 
 class Stack {
   Node? top;
@@ -37,43 +36,40 @@ class Stack {
       print(current.data);
       current = current.next;
     }
-    
   }
 
-  void pop(){
-
-    if(top == null){
+  void pop() {
+    if (top == null) {
       print("Stack Underflow");
       return;
-    }else {
+    } else {
       top = top?.next;
     }
   }
-  void deleteMidElement(){
-    Node? data ,previous;
-    
-    if(top==null){
+
+  void deleteMidElement() {
+    Node? data, previous;
+
+    if (top == null) {
       print('stack is empty');
-    }else{
+    } else {
       Node? current = top;
-      int count=0;
-      while (current!=null) {
+      int count = 0;
+      while (current != null) {
         current = current.next;
         count++;
       }
-      if(count>=3){
-         int mid = (count/2).floor();
-       data = top;
-      for(int i = 1;i<=mid;i++){
-        previous = data;
-         data = data?.next;
-      }
-      previous?.next = data?.next;
-    
-      }else{
+      if (count >= 3) {
+        int mid = (count / 2).floor();
+        data = top;
+        for (int i = 1; i <= mid; i++) {
+          previous = data;
+          data = data?.next;
+        }
+        previous?.next = data?.next;
+      } else {
         print('there is no mid element');
       }
     }
-    print(data?.data);
   }
 }
