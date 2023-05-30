@@ -51,3 +51,18 @@ void main(List<String> args) {
   obj.enqueue(40);
   obj.displayQueue();
 }
+ 
+ class Queue2{
+  Node? front;
+   Node? rear;
+
+   void enqueue(int data){
+    Node newNode = Node(data);
+    if(rear==null){
+      front = rear = newNode;
+    }else{
+      rear?.next = newNode;
+      rear = newNode;
+    }
+   }
+ }

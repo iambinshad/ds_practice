@@ -55,4 +55,21 @@ class Stack {
       }
     }
   }
+
+    void editElement(data) {
+    if (top == -1) {
+      print("stack is empty");
+    } else {
+      int current = top;
+      while (arr[current] != data && current - 1 != -1) {
+        current--;
+      }
+      if (arr[current] == data) {
+        for (int i = current; i < top; i++) {
+          arr[i] = arr[i + 1];
+        }
+        top--;
+      }
+    }
+  }
 }

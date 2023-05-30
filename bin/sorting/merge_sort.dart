@@ -1,15 +1,14 @@
- 
- void mergeSort(List<int> arr, int leftIndex, int rightIndex) {
+List mergeSort(List<int> arr, int leftIndex, int rightIndex) {
   if (leftIndex < rightIndex) {
     int midIndex = (leftIndex + rightIndex) ~/ 2;
     mergeSort(arr, leftIndex, midIndex);
     mergeSort(arr, midIndex + 1, rightIndex);
     merge(arr, leftIndex, midIndex, rightIndex);
   }
+  return arr;
 }
 
 void merge(List<int> arr, int leftIndex, int midIndex, int rightIndex) {
-  
   int leftLength = midIndex - leftIndex + 1;
   int rightLength = rightIndex - midIndex;
 
@@ -24,9 +23,8 @@ void merge(List<int> arr, int leftIndex, int midIndex, int rightIndex) {
     rightArr[j] = arr[midIndex + 1 + j];
   }
 
-  int i = 0;
-  int j = 0;
-  int k = leftIndex;
+  int i = 0, j = 0, k = leftIndex;
+
 
   while (i < leftLength && j < rightLength) {
     if (leftArr[i] <= rightArr[j]) {
@@ -38,7 +36,7 @@ void merge(List<int> arr, int leftIndex, int midIndex, int rightIndex) {
     }
     k++;
   }
-
+  
   while (i < leftLength) {
     arr[k] = leftArr[i];
     i++;
@@ -51,10 +49,8 @@ void merge(List<int> arr, int leftIndex, int midIndex, int rightIndex) {
     k++;
   }
 }
+
 void main(List<String> args) {
-  List<int> arr = [29,39,3,2,45,42,14,3,2];
-  mergeSort(arr, 0, arr.length-1);
-  for (var i in arr) {
-    print(i);
-  }
+  List<int> arr = [29, 39, 3, 2, 45, 42, 14, 3, 2];
+  print(mergeSort(arr, 0, arr.length - 1));
 }

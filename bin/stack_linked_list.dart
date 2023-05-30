@@ -11,15 +11,14 @@ void main(List<String> args) {
   obj.push(10);
   obj.push(28);
   obj.push(128);
-
   obj.push(1383);
-  obj.deleteMidElement();
+  obj.editStackElementByPostion(2, 127);
+
   obj.displayStack();
 }
 
 class Stack {
   Node? top;
-
   void push(int data) {
     Node newNode = Node(data);
     if (top == null) {
@@ -37,6 +36,7 @@ class Stack {
       current = current.next;
     }
   }
+
 
   void pop() {
     if (top == null) {
@@ -70,6 +70,31 @@ class Stack {
       } else {
         print('there is no mid element');
       }
+    }
+  }
+
+  void editStackElement(int element, int data) {
+    if (top == null) {
+      return;
+    } else {
+      Node? current = top;
+      while (current != null && current.data != element) {
+        current = current.next;
+      }
+      current?.data = data;
+    }
+  }
+
+  void editStackElementByPostion(int posi, int data) {
+    if (top == null) {
+      return;
+    } else {
+      Node? current = top;
+
+      for (int i = 1; i <= posi; i++) {
+        current = current?.next;
+      }
+      current?.data = data;
     }
   }
 }
