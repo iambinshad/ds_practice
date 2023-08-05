@@ -43,8 +43,6 @@ class InsertionSort{
       while (j>=0 && arra[j]>temp) {
         arra[j+1]=arra[j];
         j--;
-
-        
       }
       arra[j+1]=temp;
     }

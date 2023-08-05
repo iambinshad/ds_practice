@@ -7,6 +7,7 @@
 
 //  int i,count= 0,j, mostCount = 0,n=9;
 
+
 //  for(i=0;i<n;i++){
 //   if(array[i]%2==0){
     
@@ -40,8 +41,16 @@
 // }
 
 class Array{
+
   
-  void revese(List data){
+   void revese(List data){
+      
+
+      
+
+
+
+   
     int n = data.length;
     int end = n-1;
     for(int i=0;i<=n/2;i++){
@@ -50,29 +59,26 @@ class Array{
     data[end]=temp;
     end--;
     }
-    for(int i=0;i<n;i++){
-      print(data[i]);
-    }
+   print(data);
+
 
   }
 
-  // void reverse(List data){
-  //   int n=data.length;
-  // int end = n - 1;  
-  //   for(int i = 0; i < n/2; i++)  
-  //   {  
-  //      int temp = data[i];  
-  //       data[i] = data[end];  
-  //       data[end] = temp;  
-  //       end--;  
-  //   }  
+  void reverse(List data){
+    int n=data.length;
+  int end = n - 1;  
+    for(int i = 0; i < n/2; i++)  
+    {  
+       int temp = data[i];  
+        data[i] = data[end];  
+        data[end] = temp;  
+        end--;  
+    }  
   
-  //   for (var i = 0; i < data.length; i++) {
-  //     print(data[i]);
-  //   }
 
-
-  // }
+      print(data);
+    
+  }
 }
 
 class Node{
@@ -127,9 +133,6 @@ void insertBefore(int pos,int data){
   while(temp!=null&& temp.data !=pos){
     temp = temp.next;
   }
-
-
-
 
 }
   void printAll(){

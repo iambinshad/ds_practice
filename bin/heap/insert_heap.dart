@@ -2,9 +2,9 @@ class Heap{
 
   List<int>? heap;
 
-  Heap() {
-    heap = [];
-  }
+  // Heap() {
+  //   heap = [];
+  // }
 
   void insert(int value) {
     heap?.add(value);

@@ -5,6 +5,74 @@ class Node {
   Node(int this.data);
 }
 
+class LinkuMon{
+  Node? head;
+  Node? tail;
+
+void delete(int data){
+  Node? temp = head, previous;
+  if(temp!=null&&temp.data==data){
+    head = head?.next;
+    return;
+  }
+  while (temp!=null&&temp.data!=data) {
+    previous = temp;
+    temp = temp.next;
+  }
+  if(temp==null){
+    return;
+  }
+  if(temp == tail){
+    tail = previous;
+    tail?.next = null;
+    return;
+  }
+  previous?.next = temp.next;
+}
+
+  void displayLinkedList(){
+
+    if(head==null){
+      print("Linked List is empty!");
+      return;
+    }else{
+      Node? temp = head;
+      while (temp!=null) {
+        print(temp.data);
+        temp =temp.next;
+      }
+    }
+
+  }
+  void addNode(int data){
+    Node newNode = Node(data);
+    if(head == null){
+      head = newNode;
+    }else{
+      tail?.next = newNode;
+    }
+    tail = newNode;
+  }
+  void addNodeAtEnd(int data){
+    Node newNode = Node(data);
+    if(head !=null){
+      tail?.next = newNode;
+      tail = newNode;
+      tail?.next = null;
+    }
+
+  }
+  void addNodeAtBegning(int data){
+    Node newNode = Node(data);
+    if(head==null){
+      head = newNode;
+    }else{
+      newNode.next = head;
+      head = newNode;
+    }
+  }
+}
+
 class SlinkedList {
   Node? head;
   Node? tail;
@@ -17,7 +85,6 @@ class SlinkedList {
     } else {
       tail?.next = newNode;
     }
-
     tail = newNode;
 
   }
@@ -82,7 +149,6 @@ class SlinkedList {
       tail?.next = null;
       return;
     }
-
     previous?.next = temp.next;
   }
 
@@ -110,12 +176,13 @@ class SlinkedList {
 }
 
 void main() {
-  SlinkedList list = SlinkedList();
-
-  // list.addNode(1);
-  // list.display();
-  // print(' ');
-  // list.addNodeAtBegining(28);
-  // list.display();
+LinkuMon obj = LinkuMon();
+obj.addNode(10);
+obj.addNode(38);
+obj.addNode(317);
+obj.displayLinkedList();
+print("\n");
+obj.delete(11);
+obj.displayLinkedList();
  
 }

@@ -8,6 +8,43 @@ class Node {
 class BinarSearchClass {
   Node? root;
 
+  int? findMaxValue(Node? node) {
+  if (node == null) {
+    return null;
+  } else if (node.right == null) {
+    return node.data;
+  } else {
+    return findMaxValue(node.right);
+  }
+}
+
+int? findMinValue(Node root){
+  if(root == null){
+    return null;
+  }else if(root.left==null){
+    return root.data;
+  }else{
+    return findMinValue(root.left!);
+  }
+}
+  bool contain(int target) {
+    Node? currentNode = root;
+    if (currentNode == null) {
+      print("binary search tree is empty");
+      return false;
+    }
+    while (currentNode != null) {
+      if (currentNode.data! > target) {
+        currentNode = currentNode.left;
+      } else if (currentNode.data! < target) {
+        currentNode = currentNode.right;
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
+
   void insert(int data) {
     Node? currentNode = root;
     if (currentNode == null) {
@@ -32,43 +69,15 @@ class BinarSearchClass {
       }
     }
   }
-  //  bool contains(int data){
-  //   Node? currentNode =root;
-  //   while (currentNode!=null) {
-  //     if(currentNode.data!>data){
-  //       currentNode = currentNode.left;
-  //     }else if(currentNode.data!<data){
-  //       currentNode = currentNode.right;
-  //     }else{
-  //       return true;
-  //     }
-  //   }
-  //   return false;
-  // }
-
-  bool contain(int target) {
-    Node? currentNode = root;
-
-    if (root == null) {
-      print("Binary tree is empty");
-      return false;
-    }
-    while (currentNode != null) {
-      if (currentNode.data! > target) {
-        currentNode = currentNode.left;
-      } else if (currentNode.data! < target) {
-        currentNode = currentNode.right;
-      } else {
-        return true;
-      }
-    }
-    return false;
-  }
 }
+
 void main(List<String> args) {
   BinarSearchClass binarSearchClass = BinarSearchClass();
   binarSearchClass.insert(28);
   binarSearchClass.insert(27);
   binarSearchClass.insert(29);
-  print(binarSearchClass.contain(27));
+  print(binarSearchClass.contain(29));
+  print(binarSearchClass.findMaxValue(binarSearchClass.root));
+    print(binarSearchClass.findMinValue(binarSearchClass.root!));
+
 }

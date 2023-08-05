@@ -19,27 +19,44 @@ arr[j] = tmp;
 print(arr[i]); 
 }  
   }
-  
-int binarySearch(List<int> list, int target) {
- sorting();
-  int min = 0;
-  int max = list.length - 1;
-  
-  while (min <= max) {
-    int mid = ((min + max) / 2).floor();
-    int guess = list[mid];
-    
-    if (guess == target) {
-      return mid;
-    } else if (guess < target) {
-      min = mid + 1;
-    } else {
-      max = mid - 1;
+  int binarSearch(int target,List<int>list){
+    sorting();
+    int min = 0;
+    int max = list.length-1;
+    while (min<=max) {
+      int mid = (min+max)~/2;
+      int guess = list[mid];
+      if(guess==target){
+        return mid;
+      }else if(guess>target){
+        max =mid-1;
+      }else{
+        min=mid+1;
+      }
     }
+    return -1;
   }
   
-  return -1; 
-}
+// int binarySearch(List<int> list, int target) {
+//  sorting();
+//   int min = 0;
+//   int max = list.length - 1;
+  
+//   while (min <= max) {
+//     int mid = ((min + max) / 2).floor();
+//     int guess = list[mid];
+    
+//     if (guess == target) {
+//       return mid;
+//     } else if (guess < target) {
+//       min = mid + 1;
+//     } else {
+//       max = mid - 1;
+//     }
+//   }
+  
+//   return -1; 
+// }
 void largestNum(){
 
   int small = arr[0]; 
@@ -56,11 +73,10 @@ void largestNum(){
 void main() {
   Binary obj = Binary();
   // List<int> data = [349,32,4,3,24,83];
-  int resu=obj.binarySearch(obj.arr, 4);
-  print(resu);
+  // int resu=obj.binarySearch(obj.arr, 4);
+  // print(resu);
  
   // print('');
   // int? result = obj.binarySearch(obj.arr,1);
   // print(result);
-
 }
